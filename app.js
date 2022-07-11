@@ -1,6 +1,7 @@
 const express = require('express')
-const res = require('express/lib/response')
+const body_parser= require('body-parser')
 const path = require('path')
+const { stringify } = require('querystring')
 
 const app = express()
 const htmldir = __dirname+'/public/html/'
@@ -21,7 +22,7 @@ app.get('/buscar',(req, res)=>{
 })
 
 app.post('/buscar',(req, res)=>{
-    res.render('index.ejs', {variable: "jose"})
+    res.render('index.ejs', {req: stringify(req.body)})
     console.log(req.body.Estante)
 })
 

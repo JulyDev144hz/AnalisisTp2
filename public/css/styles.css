@@ -71,3 +71,39 @@ body{
     color: #000;
     text-decoration: underline;
 }
+.search-form{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+.btn-search-submit{
+    width: 40%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.input-text-search{
+    text-align: center;
+    width: 40%;
+    margin-bottom: 20px;
+    padding: 2px;
+    font-size: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    
+}
+
+.input-text-search:focus{
+    outline: 2px solid blue;
+}
+.search-title{
+    color: rgb(0, 0, 0);
+    margin-top: 25px;
+    font-weight: 400;
+    font-size: 50px;
+    margin-bottom: 25px;
+}

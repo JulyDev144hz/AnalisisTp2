@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link href="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.19.0/mercadolibre/favicon.svg" rel="icon" data-head-react="true">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
@@ -9,9 +10,14 @@
 </head>
 <body>
     <div class="main-container">
-        <form action="" method="post">
-            <input type="text" name="Estante" id="" placeholder="Estante">
-            <button type="submit">Enviar</button>
+        <form action="" method="post" class="search-form">
+            <h1 class="search-title">Buscar:</h1>
+            <input autocomplete="off" type="text" name="Estante" id="" placeholder="Estante" class="input-text-search">
+            <input autocomplete="off" type="text" name="Fila" id="" placeholder="Fila" class="input-text-search">
+            <input autocomplete="off" type="text" name="Columna" id="" placeholder="Columna" class="input-text-search">
+            <button type="submit" class="button btn-search-submit ">Enviar</button>
+            
+            <a href="/inicio" class="button btn-search-submit">Volver</a>
         </form>
     </div>
 </body>

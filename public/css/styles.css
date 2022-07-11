@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Argentum Sans';
+    src: url('../fonts/ArgentumSans-Regular.ttf');
+  }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Argentum Sans';
+}
+body{
+    display: flex;
+    background-color: #FAD961;
+    background-image: linear-gradient(135deg, #FAD961 0%, #F76B1C 100%);
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.main-container{
+    background-color:#fff23d;
+    height: 450px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+    border: 3px solid #fff;
+}
+.main-title{
+    color: rgb(0, 0, 0);
+    margin-top: 40px;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+.icon-img{
+    transform: scale(2.5);
+    margin-bottom: 80px;
+}
+.button{
+    text-decoration: none;
+    position: relative;
+    color: rgb(255, 255, 255);
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #333;
+    transition: .1s;
+}
+.button:hover{
+    transform: scale(1.2) perspective(80px);
+    
+    background: rgba(80, 80, 80,1);
+    
+}
+.button:active{
+    transform: scale(0.98);
+    background: rgba(100, 100, 100,1);
+}
+.button.btn-home{
+    text-align: center;
+    width: 15em;
+    font-size: 1.5rem;
+    margin: 10px;
+}
+.h2-home {
+    margin-top: 2rem;
+    font-size: 3em;
+    margin-bottom: 3.5rem;
+    color: #000;
+    text-decoration: underline;
+}

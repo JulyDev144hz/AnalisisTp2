@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallets</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="title-pallet">Pallets</h1>
+        <span>Estante: <%= pos[0]%> Fila:  <%= pos[1]%> Columna:  <%= pos[2]%></span>
+        
+        <% if (vacio !== false) { %>
+            <div class="content-box">
+                <span>Contenido:</span>
+                <h2><%= contenido%></h2>
+                <span>Cantidad:</span>
+                <h2><%= cantidad%></h2>
+            </div>
+            <button class="button btn-home btn-resultado">Remover</button>
+        <% }else{ %>
+            <div class="content-box">
+                <h2 style="color: #f22;">No hay registro</h2>
+            </div>
+        <% } %>
+        
+        <a href="/buscar" class="button btn-home btn-resultado">Volver</a>
+    </div>
+</body>
+</html>

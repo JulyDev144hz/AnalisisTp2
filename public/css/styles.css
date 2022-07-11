@@ -98,7 +98,10 @@ body{
 }
 
 .input-text-search:focus{
+    transition: .2s;
     outline: 2px solid blue;
+    position: relative;
+    transform: scale(1.2);
 }
 .search-title{
     color: rgb(0, 0, 0);
@@ -106,4 +109,36 @@ body{
     font-weight: 400;
     font-size: 50px;
     margin-bottom: 25px;
+}
+
+.content-box{
+    background-color: white;
+    margin: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+.content-box span{
+    font-size: 20px;
+    color: #777;
+}
+.content-box h2{
+    font-size: 30px;
+    color: #000;
+    margin-bottom: 20px;
+}
+.button.btn-home.btn-resultado{
+    font-size: 20px;
+}
+.title-pallet{
+    margin: 10px;
 }

@@ -19,7 +19,8 @@ body{
 }
 .main-container{
     background-color:#fff23d;
-    height: 450px;
+    min-height: 450px;
+    padding: 2px;
     width: 800px;
     display: flex;
     flex-direction: column;
@@ -89,13 +90,13 @@ body{
 .input-text-search{
     text-align: center;
     width: 40%;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding: 2px;
     font-size: 20px;
     border: 1px solid gray;
     border-radius: 10px;
-    
 }
+
 
 .input-text-search:focus{
     transition: .2s;
@@ -141,4 +142,20 @@ body{
 }
 .title-pallet{
     margin: 10px;
+}
+.span-exito{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 5vh;
+    font-size: 2rem;
+    color: green;
+}
+.span-error{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 5vh;
+    font-size: 2rem;
+    color: rgb(128, 0, 0);
 }

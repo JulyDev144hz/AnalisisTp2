@@ -9,12 +9,23 @@
     <title>Buscar</title>
 </head>
 <body>
+    <% if (exito == 1){ %> 
+        <span class="span-exito">Enviado con Exito</span>
+    <% }else if (exito == 2){ %> 
+        <span class="span-error">Error al Enviar</span>
+    <% } %> 
     <div class="main-container">
         <form action="" method="post" class="search-form">
             <h1 class="search-title"><%= title %> </h1>
-            <input autocomplete="off" type="text" name="estante" id="" placeholder="Estante" class="input-text-search">
-            <input autocomplete="off" type="text" name="fila" id="" placeholder="Fila" class="input-text-search">
-            <input autocomplete="off" type="text" name="columna" id="" placeholder="Columna" class="input-text-search">
+            <% if (title==='Ingreso:') { %>
+                <input autocomplete="off" type="text" name="producto" id="" placeholder="Producto" class="input-text-search" maxlength="40">
+                <input autocomplete="off" type="text" name="cantidad" id="" placeholder="Cantidad" class="input-text-search" maxlength="8">
+            
+            <% } %>
+
+            <input autocomplete="off" type="text" name="estante" id="" placeholder="Estante" class="input-text-search" maxlength="2">
+            <input autocomplete="off" type="text" name="fila" id="" placeholder="Fila" class="input-text-search" maxlength="1">
+            <input autocomplete="off" type="text" name="columna" id="" placeholder="Columna" class="input-text-search" maxlength="1">
             <button type="submit" class="button btn-search-submit ">Enviar</button>
             
             <a href="/inicio" class="button btn-search-submit">Volver</a>

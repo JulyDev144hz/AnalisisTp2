@@ -77,39 +77,76 @@ app.get('/ingresar',(req, res)=>{
 app.post('/ingresar',(req, res)=>{
     //console.log(`${req.body.estante},${req.body.fila}, ${req.body.columna},${req.body.producto},${req.body.cantidad}`)
     //res.render('buscar.ejs',{title:"Ingreso:", exito: 2})
-    db.query(`insert into deposito(estante, fila, columna, producto, cantidad) values(${req.body.estante},${req.body.fila}, ${req.body.columna},"${req.body.producto}",${req.body.cantidad}) `).then((err)=>{
-        
-        if (err === 1){
-            res.render('buscar.ejs',{title:"Ingreso:", exito: 2})
+    let estante = req.body.estante
+    let fila = req.body.fila    
+    let columna = req.body.columna
+    let producto = req.body.producto
+    let cantidad = req.body.cantidad
 
-        }else{
-            res.render('buscar.ejs',{title:"Ingreso:", exito: 1})
-        }
-    })
+    // hacer comprobacion
+    
+
+    if (!isNaN(columna) && columna<=8 && columna>0 && !isNaN(fila) && fila<=4 && fila>0 && !isNaN(estante) && estante<=40 && estante>0){
+        db.query(`select * from deposito where estante = ${estante} and fila = ${fila} and columna = ${columna} `).then((rows)=>{
+            if (rows[0]){
+                res.render('buscar.ejs',{title:"Ingreso:", exito: 2})
+            }else{
+                db.query(`insert into deposito(estante, fila, columna, producto, cantidad) values(${estante},${fila}, ${columna},"${producto}",${cantidad}) `).then((err)=>{
+                    
+                    if (err === 1){
+                        res.render('buscar.ejs',{title:"Ingreso:", exito: 2})
+            
+                    }else{
+                        res.render('buscar.ejs',{title:"Ingreso:", exito: 1})
+                    }
+                })
+            }
+        })
+    }else{
+        res.render('buscar.ejs',{title:"Ingreso:", exito: 2})
+
+    }
+
+
+
     
         
     
 })
 
 app.post('/buscar',(req, res)=>{
-    db.query(`select * from deposito where estante = ${req.body.estante} and fila = ${req.body.fila} and columna = ${req.body.columna} `).then((row)=>{
-        if (row[0]){
-            let contenido = row[0].producto
-            let cantidad = row[0].cantidad
+    
+    if (req.body.remover){
+        db.query(`delete from deposito where estante = ${req.body.estante} and fila = ${req.body.fila} and columna = ${req.body.columna}`).then((row)=>{
             res.render('pallets.ejs', {
                 pos: [req.body.estante, req.body.fila, req.body.columna],
-                contenido : contenido,
-                cantidad : cantidad,
-                vacio : true
+                vacio : true,
+                msg : "Registro Removido"
             })
-        }else{
-            res.render('pallets.ejs', {
-                pos: [req.body.estante, req.body.fila, req.body.columna],
-                vacio : false
-            })
-        }
-        
-    })
+        })
+    }else{
+        db.query(`select * from deposito where estante = ${req.body.estante} and fila = ${req.body.fila} and columna = ${req.body.columna} `).then((row)=>{
+            if (row[0]){
+                let contenido = row[0].producto
+                let cantidad = row[0].cantidad
+                res.render('pallets.ejs', {
+                    pos: [req.body.estante, req.body.fila, req.body.columna],
+                    contenido : contenido,
+                    cantidad : cantidad,
+                    vacio : false
+                })
+            }else{
+                res.render('pallets.ejs', {
+                    pos: [req.body.estante, req.body.fila, req.body.columna],
+                    vacio : true,
+                    msg : "No hay registro"
+                })
+            }
+            
+        })
+    }
+
+
 
 
     

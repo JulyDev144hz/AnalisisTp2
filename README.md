@@ -10,6 +10,8 @@ ___
 ___
 ### Como Ejecutarlo?
 😨 Primero tenemos que abrir una terminal en la carpeta, luego ejecutamos el comando
-``npm i && npm start``
-😁 Esto automaticamente abrira un servidor en nuestro host local 3000
+```
+npm i && npm start
+```
+😁 Esto automaticamente abrira un servidor en nuestro host local 3000 <br>
 💥 !!! IMPORTANTE, tenes que tener ejecutando el servicio mysql desde por ejemplo xampp o wampserver
